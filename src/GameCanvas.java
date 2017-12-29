@@ -9,7 +9,8 @@ public class GameCanvas extends JPanel{
     BufferedImage background;
     BufferedImage player;
     BufferedImage square;
-    BufferedImage square1;
+    BufferedImage explosion;
+    BufferedImage explosion2;
 
     BufferedImage backBuffered;
     Graphics graphics;
@@ -17,11 +18,24 @@ public class GameCanvas extends JPanel{
     public int positionPlayerY = 500;
     public int squareX = 180;
     public int squareY = 10;
-    public int square1X = 10;
-    public int square1Y = 10;
+    public int square1X = 0;
+    public int square1Y = 30;
+    public int square2X = 10;
+    public int square2plus = 10;
+    public int explosionY = 20;
+    public int explosion3X = 190;
+    public int explosion3Y = 20;
+    public int explosion3plusX = 2;
+    public int explosion1X = 5;
+    public int explosion1Y = 35;
+    public int explosion1plusX = 3;
 
-    public int plusX = 3;
-    public int plusY = 4;
+
+
+    public int square2Y = 10;
+
+    public int plusX = 2;
+    public int plusY = 1;
     public int plus1X = 4;
     public int plus1Y = 4;
 
@@ -53,7 +67,12 @@ public class GameCanvas extends JPanel{
             e.printStackTrace();
         }
         try {
-            this.square1 = ImageIO.read(new File("resources/square/enemy_square_large.png"));
+            this.explosion = ImageIO.read(new File("resources/square/explosion/enemy_square_explosion_particle_3.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.explosion2 = ImageIO.read(new File("resources/square/explosion/enemy_square_explosion_particle_5.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,7 +107,18 @@ public class GameCanvas extends JPanel{
         this.graphics.drawImage(this.background, 0, 0, null);
         this.graphics.drawImage(this.player, this.positionPlayerX - 25,this.positionPlayerY - 50,null);
         this.graphics.drawImage(this.square,this.squareX,this.squareY,null);
-        this.graphics.drawImage(this.square1,this.square1X,this.square1Y,null);
+        this.graphics.drawImage(this.square,this.square1X,this.square1Y,null);
+
+        for (int i = 0; i <10 ; i ++) {
+            square2plus = square2X + 39 * i ;
+            if (square2plus >= 390){
+                square2plus = square2plus - 390;
+            }
+            this.graphics.drawImage(this.square,this.square2plus,10,null);
+            this.graphics.drawImage(this.explosion2, this.square2plus +10,this.explosionY,null);
+        }
+        this.graphics.drawImage(this.explosion,this.explosion3X,this.explosion3Y,null);
+        this.graphics.drawImage(this.explosion,this.explosion1X,this.explosion1Y,null);
 
         this.repaint();
     }
