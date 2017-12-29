@@ -9,12 +9,22 @@ public class GameCanvas extends JPanel{
     BufferedImage background;
     BufferedImage player;
     BufferedImage square;
+    BufferedImage square1;
+
     BufferedImage backBuffered;
     Graphics graphics;
     public int positionPlayerX = 180;
     public int positionPlayerY = 500;
     public int squareX = 180;
     public int squareY = 10;
+    public int square1X = 10;
+    public int square1Y = 10;
+
+    public int plusX = 3;
+    public int plusY = 4;
+    public int plus1X = 4;
+    public int plus1Y = 4;
+
     public GameCanvas() {
         this.setSize(400, 600);
         this.setVisible(true);
@@ -22,12 +32,7 @@ public class GameCanvas extends JPanel{
         this.setupBackBuffered();
         this.setupBackground();
         this.setupplayer();
-
-        try {
-            this.square = ImageIO.read(new File("resources/square/enemy_square_small.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.square();
 
     }
     private void setupBackBuffered() {
@@ -40,6 +45,19 @@ public class GameCanvas extends JPanel{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private  void  square (){
+        try {
+            this.square = ImageIO.read(new File("resources/square/enemy_square_small.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.square1 = ImageIO.read(new File("resources/square/enemy_square_large.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private  void  setupplayer() {
@@ -69,6 +87,9 @@ public class GameCanvas extends JPanel{
     public  void  renderAll() {
         this.graphics.drawImage(this.background, 0, 0, null);
         this.graphics.drawImage(this.player, this.positionPlayerX - 25,this.positionPlayerY - 50,null);
+        this.graphics.drawImage(this.square,this.squareX,this.squareY,null);
+        this.graphics.drawImage(this.square1,this.square1X,this.square1Y,null);
+
         this.repaint();
     }
 }
