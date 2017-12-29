@@ -57,6 +57,33 @@ public class GameWindow extends JFrame{
         while (true) {
             long curretTime = System.nanoTime();
             if ( curretTime - this.lastTime >= 17_000_000) {
+                gameCanvas.squareX = gameCanvas.squareX + gameCanvas.plusX;
+                gameCanvas.squareY = gameCanvas.squareY + gameCanvas.plusY;
+
+                if (gameCanvas.squareX >= 370) {
+                    gameCanvas.plusX = - 3;
+                }
+                else if (gameCanvas.squareX <= 5) {
+                    gameCanvas.plusX = 3;
+                }
+                if (gameCanvas.squareY >= 550) {
+                    gameCanvas.plusY = - 4;
+                }
+                else if (gameCanvas.squareY <= 5) {
+                    gameCanvas.plusY = 4;
+                }
+//                for (int i = 0; i < 5; i++) {
+//                    gameCanvas.graphics.drawImage(this.gameCanvas.square1,gameCanvas.square1X,gameCanvas.square1Y,null);
+//                    gameCanvas.square1X = gameCanvas.square1X + 40;
+//                }
+
+                gameCanvas.square1Y = gameCanvas.square1Y + gameCanvas.plus1Y;
+                if (gameCanvas.square1Y>=530) {
+                    gameCanvas.square1Y = 5;
+                }
+
+
+
                 this.gameCanvas.renderAll();
                 this.lastTime = curretTime;
             }
