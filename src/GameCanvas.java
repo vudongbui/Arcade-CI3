@@ -140,7 +140,7 @@ public class GameCanvas extends JPanel{
 //        }
 
         if (this.countBulletPlayer ==20){
-            BulletPlayer bulletPlayer = new BulletPlayer(this.player.x,this.player.y,"resources/player/player_bullet.png",3);
+            BulletPlayer bulletPlayer = new BulletPlayer(this.player.x,this.player.y,"resources/player/player_bullet.png",3,0);
             this.vectorBulletPlayer.add(bulletPlayer);
             this.countBulletPlayer = 0;
         }else {
@@ -161,16 +161,17 @@ public class GameCanvas extends JPanel{
             Square squareMedium = new Square(randomSquareMedium,5,3,4,"resources/square/enemy_square_medium.png");
             this.vectorSquareMedium.add(squareMedium);
             this.countSquareMedium = 0;
+            if (this.countBulletSquareMedium ==10){
+                BulletSquare bulletSquareMedium = new BulletSquare(this.squareMedium.x,5,"resources/square/enemy_square_bullet.png", 2);
+                this.vectorBulletSquareMedium.add(bulletSquareMedium);
+                this.countBulletSquareMedium = 0;
+            }else {
+                this.countBulletSquareMedium++;
+            }
         }else {
             this.countSquareMedium++;
         }
-        if (this.countBulletSquareMedium ==10){
-            BulletSquare bulletSquareMedium = new BulletSquare(1,5,"resources/square/enemy_square_bullet.png", 2);
-            this.vectorBulletSquareMedium.add(bulletSquareMedium);
-            this.countBulletSquareMedium = 0;
-        }else {
-            this.countBulletSquareMedium++;
-        }
+
 
 //        if (this.bulletPlayer !=null){
 //            this.bulletPlayer.run();

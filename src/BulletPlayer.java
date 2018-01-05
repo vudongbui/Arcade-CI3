@@ -12,10 +12,12 @@ public class BulletPlayer {
     public int y;
     public BufferedImage image;
     public  int speed;
+    public int z;
 
-    public BulletPlayer(int x,int y, String url,int speed){
+    public BulletPlayer(int x,int y, String url,int speed,int z){
         this.x = x;
         this.y = y;
+        this.z = z;
         this.speed = speed;
         try {
             this.image = ImageIO.read(new File(url));
@@ -29,10 +31,12 @@ public class BulletPlayer {
 
     public void run() {
         this.y -= this.speed;
+        this.z++;
     }
 
     public void render(Graphics graphics) {
-        graphics.drawImage(this.image,this.x-15,this.y-50,null);
+        graphics.drawImage(this.image,this.x-15 + z,this.y-50,null);
+        graphics.drawImage(this.image,this.x-15 - z,this.y-50,null);
     }
 
 
