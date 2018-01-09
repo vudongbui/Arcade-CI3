@@ -47,6 +47,7 @@ public class GameCanvas extends JPanel{
     private  void  square (){
         GameObject.add(new Squareborn());
         GameObject.add(new SquareMediumBorn());
+        GameObject.add(new SquareRingBorn());
     }
     private  void  setupplayer() {
         this.player = new Player();

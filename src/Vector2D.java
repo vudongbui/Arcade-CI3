@@ -1,9 +1,9 @@
 public class Vector2D {
 
-    public float x;
-    public float y;
+    public double x;
+    public double y;
 
-    public Vector2D(float x, float y) {
+    public Vector2D(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -13,7 +13,7 @@ public class Vector2D {
     }
 
 
-    public Vector2D set(float x, float y) {
+    public Vector2D set(double x, double y) {
         this.x = x;
         this.y = y;
         return this;
@@ -23,7 +23,7 @@ public class Vector2D {
     }
 
 
-    public Vector2D addUp(float x, float y) {
+    public Vector2D addUp(double x, double y) {
         this.x += x;
         this.y += y;
         return this;
@@ -33,7 +33,7 @@ public class Vector2D {
     }
 
 
-    public Vector2D add(float x, float y) {
+    public Vector2D add(double x, double y) {
         return new Vector2D(this.x + x, this.y + y);
     }
     public Vector2D add(Vector2D vector2D) {
@@ -41,7 +41,7 @@ public class Vector2D {
     }
 
 
-    public Vector2D subtractBy(float x, float y) {
+    public Vector2D subtractBy(double x, double y) {
         this.x -= x;
         this.y -= y;
         return this;
@@ -51,7 +51,7 @@ public class Vector2D {
     }
 
 
-    public Vector2D subtract(float x, float y) {
+    public Vector2D subtract(double x, double y) {
         return new Vector2D(this.x - x, this.y - y);
     }
     public Vector2D subtract(Vector2D vector2D) {
@@ -59,7 +59,7 @@ public class Vector2D {
     }
 
 
-    public Vector2D multiply(float z, Vector2D vector2D) {
+    public Vector2D multiply(double z, Vector2D vector2D) {
         return new Vector2D(z * this.x, z * this.y);
     }
 
