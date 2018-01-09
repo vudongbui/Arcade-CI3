@@ -76,11 +76,17 @@ public class Vector2D {
 
     public Vector2D rotate(double degree){
         double radian = Math.toRadians(degree);
-        float a,b;
-        a = (float) (this.x * Math.cos(radian) - this.y*Math.sin(radian));
-        b = (float) (this.x * Math.sin(radian) + this.y*Math.cos(radian));
+        double a,b;
+        a = this.x * Math.cos(radian) - this.y*Math.sin(radian);
+        b = this.x * Math.sin(radian) + this.y*Math.cos(radian);
         this.x = a;
         this.y = b;
+        return this;
+    }
+    public Vector2D rotateZ (int z,double degree){
+        double radian = Math.toRadians(degree);
+        this.x = this.x + (z * Math.cos(radian) - z * Math.sin(radian));
+        this.y = this.y + (z * Math.sin(radian) + z * Math.cos(radian));
         return this;
     }
 }
