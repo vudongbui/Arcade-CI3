@@ -14,7 +14,7 @@ import java.util.Vector;
             if (this.count >=20){
                 Square square = new Square();
                 square.position.set(random.nextInt(400),0.0f);
-                square.verolity.set(0.0f,random.nextInt(6)+3);
+                square.velocity.set(0.0f,random.nextInt(6)+3);
                 GameObject.add(square);
                 this.count =0;
             }

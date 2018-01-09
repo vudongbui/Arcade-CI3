@@ -27,11 +27,6 @@ public class GameCanvas extends JPanel{
     Vector vector;
 
 
-    int countBulletPlayer;
-//    int countBulletSquareMedium;
-    int countSquareSmall;
-    int countSquareMedium;
-
     public GameCanvas() {
         this.setSize(400, 600);
         this.setVisible(true);
@@ -51,6 +46,7 @@ public class GameCanvas extends JPanel{
     }
     private  void  square (){
         GameObject.add(new Squareborn());
+        GameObject.add(new SquareMediumBorn());
     }
     private  void  setupplayer() {
         this.player = new Player();

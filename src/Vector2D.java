@@ -73,4 +73,14 @@ public class Vector2D {
         Vector2D vector2D = new Vector2D(this.x, this.y);
         return vector2D;
     }
+
+    public Vector2D rotate(double degree){
+        double radian = Math.toRadians(degree);
+        float a,b;
+        a = (float) (this.x * Math.cos(radian) - this.y*Math.sin(radian));
+        b = (float) (this.x * Math.sin(radian) + this.y*Math.cos(radian));
+        this.x = a;
+        this.y = b;
+        return this;
+    }
 }
