@@ -14,12 +14,5 @@ public class Main {
         GameWindow gameWindow = new GameWindow();
         gameWindow.gameLoop();
 
-        Car CarHonda = new Car();
-        CarHonda.color = "red";
-        CarHonda.number = 4;
-        CarHonda.speedmax = 100.0;
-
-        CarHonda.run();
-
     }
 }

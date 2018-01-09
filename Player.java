@@ -1,26 +1,22 @@
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+public class Player extends GameObject{
 
-public class Player {
-    public int x;
-    public int y;
-    public BufferedImage image;
-
-    public Player(int x,int y,String url){
-        this.x = x;
-        this.y = y;
-        try {
-            this.image = ImageIO.read(new File(url));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private int count = 0;
+    public Player(){
+        this.image = Utils.loadImage("resources/player/straight.png");
     }
-    public void render(Graphics graphics) {
-        graphics.drawImage(this.image,this.x-25,this.y-50,null);
+    @Override
+
+    public void run(){
+        super.run();
+        if (this.count >=20){
+            BulletPlayer bulletPlayer = new BulletPlayer();
+            bulletPlayer.position.set(this.position);
+            bulletPlayer.velocity.set(0f,2.0f);
+            GameObject.add(bulletPlayer);
+            this.count =0;
+        }
+        else {
+            this.count++;
+        }
     }
 }
