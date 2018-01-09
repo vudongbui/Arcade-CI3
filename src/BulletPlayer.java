@@ -7,38 +7,18 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class BulletPlayer {
-    public int x;
-    public int y;
-    public BufferedImage image;
-    public  int speed;
-    public int z;
+public class BulletPlayer extends GameObject {
+    public Vector2D velocity;
+    private int count = 0;
 
-    public BulletPlayer(int x,int y, String url,int speed,int z){
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.speed = speed;
-        try {
-            this.image = ImageIO.read(new File(url));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public BulletPlayer(){
-
+        this.image = Utils.loadImage("resources/player/player_bullet.png");
+        this.velocity = new Vector2D(3,3);
     }
-
+@Override
     public void run() {
-        this.y -= this.speed;
-        this.z++;
+        super.run();
+        this.position.subtractBy(this.velocity);
     }
-
-    public void render(Graphics graphics) {
-        graphics.drawImage(this.image,this.x-15 + z,this.y-50,null);
-        graphics.drawImage(this.image,this.x-15 - z,this.y-50,null);
-    }
-
-
 
 }
